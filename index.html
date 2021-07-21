@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-gb"><!-- add lang to help Google translate -->
+<!-- 
+	Alasdair King, 21 July 2021.
+	Dimming Dyslexia.
+	For Sacred Heart High School
+	
+	LICENCE
+		Copyright Alasdair King, July 2021, released under the MIT Licence.
+		Contains an image from Fontawesome.com, released under the Creative Commons Attribution 4.0
+			https://fontawesome.com/license
+		Uses the Tesseract JS port released under the Apache License 2.0
+			https://github.com/tesseract-ocr/tesseract/blob/master/LICENSE
+		Uses OpenDyslexic, licensed under the SIL Open Font License
+			https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+-->
+<head>
+	<!-- enable responsive/mobile support-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">		
+	
+	<!-- Save your files as UTF8, then you won't get weird characters -->
+	<meta charset="utf-8">	
+	
+	<!-- You can edit all of this -->
+	<title>Dimming Dyslexia</title>
+	<meta name="description" content="Making text easy for dyslexic pupils to understand.">
+	<meta name="keywords" content="dyslexia" />
+	<meta name="author" content="Sacred Heart High School Steam Team" />
+	
+	<!-- Favicon! Used in tabs in the browser and other places. -->
+	<link rel="Shortcut Icon" href="images/favicon.ico" />
+	
+	<!-- Social Media sharing content section, need to fill it all in and 
+		test it at https://developers.facebook.com/tools/debug	-->
+	<meta property="og:image" content="images/512.png"  />
+	<meta property="og:url" content="https://www.alasdairking.me.uk/dimmingdyslexia" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="Making text easy for dyslexic pupils to understand." />
+	<meta property="og:title" content="Dimming Dyslexia" />
+	
+	
+	<!-- CSS -->
+		
+	<!-- Optional CSS reset: good if you are doing a game or app or you are happy to define lots of the styles by hand, not
+	     so good if you want to do a normal kind of web page out of the box.
+		 <link rel="stylesheet" type="text/css" href="styles/reset.css">-->
+		 
+	<link rel="stylesheet" type="text/css" href="styles/dimming-dyslexia.css">
+	<!-- Or just go add some in here: applies only to this page!-->
+	<style type="text/css">
+	</style>
+	
+	<!-- PWA Manifest-->
+	<link rel="manifest" href="manifest.webmanifest">
+	<!-- PWA Theme - Chrome only at the time of writing, 2021, so gets flagged for fixing. -->
+	<meta name="theme-color" content="#ffe28f">
+	<!-- PWA for iOS - so the icon used when you install to the home screen on iOS -->
+	<link rel="apple-touch-icon" href="images/192.png"> 
+
+
+</head>
+<body>
+
+	<div id="mainPanel">
+		<div id="textArea" contenteditable>
+			Tap the camera button and take a photo of some text!
+		</div>
+		<img id="thumbnail" alt=""> 
+	</div>
+	<div id="bottomPanel">
+		<button onclick="takePicture()"><img id="cameraButton" src="images/camera-solid.svg" height="100" width="100" alt="Take a picture of some text"></button>
+	</div>
+	
+	<!-- for capturing a picture -->
+	
+	<input id="takeAPicture" type="file" accept="image/*,capture=camera" onchange="onFileSelected(event)">
+
+	<!-- External JavaScript: for best performance, move this to the bottom of the HTML page -->
+	<script src="scripts/dimming.js"></script>
+	
+	<script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
+
+</body>
+</html>
